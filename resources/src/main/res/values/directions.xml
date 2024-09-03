@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="splash">myApp://fragmentSplash</string>
+    <string name="login">myApp://fragmentLogin</string>
+</resources>

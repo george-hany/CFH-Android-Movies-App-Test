@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.app.app.ui.main.movieDetails.MovieDetailsViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/backdropImage"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                app:image="@{viewModel.movieDetailsResponseFlow.backdropPath}"
+                app:layout_constraintBottom_toTopOf="@id/titleText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/backgrounds/scenic" />
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:text="@{viewModel.movieDetailsResponseFlow.originalTitle}"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toTopOf="@id/taglineText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/backdropImage"
+                tools:text="Deadpool and Wolverine"
+                tools:textColor="@android:color/black"
+                tools:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/taglineText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dp"
+                android:text="@{viewModel.movieDetailsResponseFlow.tagline}"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@id/overviewText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/titleText"
+                tools:text="Come together."
+                tools:textColor="@android:color/darker_gray" />
+
+            <TextView
+                android:id="@+id/overviewText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:text="@{viewModel.movieDetailsResponseFlow.overview}"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@id/genresText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/taglineText"
+                tools:text="A listless Wade Wilson toils away in civilian life with his days as the morally flexible mercenary, Deadpool, behind him. But when his homeworld faces an existential threat, Wade must reluctantly suit-up again with an even more reluctant Wolverine."
+                tools:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/genresText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@id/releaseDateText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/overviewText"
+                tools:text="Genres: Action, Comedy, Science Fiction"
+                tools:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/releaseDateText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:textSize="14sp"
+                app:bindReleaseDate="@{viewModel.movieDetailsResponseFlow.releaseDate}"
+                app:layout_constraintBottom_toTopOf="@id/runtimeText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/genresText"
+                tools:text="Release Date: 2024-07-24"
+                tools:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/runtimeText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:textSize="14sp"
+                app:bindRuntime="@{viewModel.movieDetailsResponseFlow.runtime}"
+                app:layout_constraintBottom_toTopOf="@id/voteAverageText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/releaseDateText"
+                tools:text="Runtime: 128 minutes"
+                tools:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/voteAverageText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:textSize="14sp"
+                app:bindVoteAverage="@{viewModel.movieDetailsResponseFlow.voteAverage}"
+                app:layout_constraintBottom_toTopOf="@id/voteCountText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/runtimeText"
+                tools:text="Rating: 7.77"
+                tools:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/voteCountText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="8dp"
+                android:textSize="14sp"
+                app:bindVoteCount="@{viewModel.movieDetailsResponseFlow.voteCount}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/voteAverageText"
+                tools:text="Votes: 2533"
+                tools:textColor="@android:color/black" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

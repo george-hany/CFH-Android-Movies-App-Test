@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="email_error_txt">You Should enter valid email</string>
+    <string name="password_error_txt">You Should enter valid password with 3 characters at least</string>
+    <string name="login_txt">SIGN IN</string>
+    <string name="forget_password" >forget password</string>
+    <string name="password">Password</string>
+    <string name="user_name">UserName</string>
+    <string name="sign_in">Sign In</string>
+    <string name="enter_your_email_address">Enter Your Email Address</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="sign_in_txt">Sign in</string>
+    <string name="noInternetConnection">No Internet Connection</string>
+    <string name="ok">OK</string>
+
+</resources>
